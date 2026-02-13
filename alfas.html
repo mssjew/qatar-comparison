@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSS vs ALFAS vs Doha — Live Comparison</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #F0F0F0; color: #1A1A1A; line-height: 1.5;
+    padding: 16px; max-width: 600px; margin: 0 auto;
+  }
+  .header {
+    text-align: center; padding: 20px 16px; margin-bottom: 16px;
+    background: #fff; border-radius: 14px; border: 1px solid #DDD;
+  }
+  .header h1 { font-size: 19px; font-weight: 800; }
+  .header .subtitle { font-size: 12px; color: #777; margin-top: 4px; }
+  .header .spot { font-size: 14px; font-weight: 700; color: #C8963E; margin-top: 8px; }
+
+  .table-box {
+    background: #fff; border: 1px solid #DDD; border-radius: 14px;
+    padding: 16px; margin-bottom: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%; border-collapse: collapse; font-size: 13px;
+  }
+  thead th {
+    font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.5px;
+    padding: 8px 6px; border-bottom: 2px solid #E8E8E8; text-align: right;
+    white-space: nowrap;
+  }
+  thead th:first-child { text-align: left; }
+  tbody td {
+    padding: 12px 6px; border-bottom: 1px solid #F0F0F0;
+    text-align: right; font-weight: 600; font-size: 14px;
+  }
+  tbody td:first-child { text-align: left; color: #555; font-weight: 700; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .cheapest { color: #1B8A1B; }
+  .expensive { color: #CC3333; }
+  .na { color: #CCC; font-weight: 400; }
+
+  .nav {
+    text-align: center; margin-bottom: 14px;
+  }
+  .nav a {
+    display: inline-block; background: #fff; border: 1px solid #DDD;
+    border-radius: 8px; padding: 8px 16px; font-size: 13px;
+    color: #C8963E; text-decoration: none; font-weight: 600;
+  }
+
+  .note {
+    font-size: 11px; color: #888; padding: 10px 14px;
+    background: #fff; border: 1px solid #DDD; border-radius: 10px;
+    line-height: 1.6;
+  }
+  .footer {
+    text-align: center; padding: 14px 0 6px; font-size: 11px; color: #999;
+  }
+  .footer a { color: #C8963E; text-decoration: none; font-weight: 600; }
+
+  @media (max-width: 400px) {
+    body { padding: 10px; }
+    .header h1 { font-size: 17px; }
+    table { font-size: 12px; }
+    tbody td { padding: 10px 4px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="nav"><a href="index.html">← Qatar Market Comparison</a></div>
+
+<div class="header">
+  <h1>MSS vs ALFAS vs Doha Retail</h1>
+  <div class="subtitle">All prices in BD · Valcambi Minted Bars</div>
+  <div class="spot" id="spotRate">Loading spot rate...</div>
+</div>
+
+<div class="table-box">
+  <table>
+    <thead>
+      <tr>
+        <th>Bar</th>
+        <th>MSS 🇧🇭</th>
+        <th>ALFAS</th>
+        <th>Doha Avg 🇶🇦</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <tr><td colspan="4" style="text-align:center;color:#999;">Loading...</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="note">
+  💡 MSS prices from mssbars.com live formula. ALFAS = spot gold value + $60/oz premium + per-bar cost (Valcambi, effective 9 Feb 2026). Doha avg from Qatar retail survey, 13 Feb 2026. Cheapest per row in <span style="color:#1B8A1B;font-weight:700;">green</span>.
+</div>
+
+<div class="footer">
+  <a href="https://mssbars.com">mssbars.com</a> · MSS Gold Bahrain
+</div>
+
+<script>
+const OZ = 31.10347;
+const AED_TO_BD = 0.377 / 3.6725;
+const QAR_TO_BD = 0.377 / 3.64;
+
+const bars = [
+  { name: "1g",   w: 1,        mssAdd: 700, mssFlat: 0,  alfasCost: 46, curr: "AED", doha: null },
+  { name: "2.5g", w: 2.5,      mssAdd: 325, mssFlat: 0,  alfasCost: 50, curr: "AED", doha: null },
+  { name: "5g",   w: 5,        mssAdd: 275, mssFlat: 0,  alfasCost: 64, curr: "AED", doha: 327 },
+  { name: "10g",  w: 10,       mssAdd: 180, mssFlat: 30, alfasCost: 95, curr: "QAR", doha: null },
+  { name: "20g",  w: 20,       mssAdd: 125, mssFlat: 30, alfasCost: 120, curr: "QAR", doha: null },
+  { name: "1oz",  w: 31.10347, mssAdd: 82,  mssFlat: 30, alfasCost: 135, curr: "QAR", doha: null },
+  { name: "50g",  w: 50,       mssAdd: 77,  mssFlat: 35, alfasCost: 165, curr: "QAR", doha: 3245 },
+  { name: "100g", w: 100,      mssAdd: 41,  mssFlat: 35, alfasCost: 188, curr: "QAR", doha: 6374 },
+];
+
+function calcMSS(spot, bar) {
+  return Math.ceil(((spot + bar.mssAdd) / OZ) * bar.w * 0.377) + bar.mssFlat;
+}
+
+function calcALFAS(spot, bar) {
+  const goldVal = (spot / OZ) * bar.w * 0.377;
+  const prem = (60 / OZ) * bar.w * 0.377;
+  const costBD = bar.curr === "AED" ? bar.alfasCost * AED_TO_BD : bar.alfasCost * QAR_TO_BD;
+  return Math.ceil(goldVal + prem + costBD);
+}
+
+function render(spot) {
+  document.getElementById("spotRate").textContent = "Live Spot: $" + spot.toFixed(2) + "/oz";
+  const tbody = document.getElementById("tableBody");
+  tbody.innerHTML = "";
+
+  bars.forEach(bar => {
+    const mss = calcMSS(spot, bar);
+    const alfas = calcALFAS(spot, bar);
+    const doha = bar.doha;
+
+    const prices = [mss, alfas];
+    if (doha) prices.push(doha);
+    const min = Math.min(...prices);
+
+    const tr = document.createElement("tr");
+    tr.innerHTML =
+      '<td>' + bar.name + '</td>' +
+      '<td class="' + (mss === min ? 'cheapest' : '') + '">BD ' + mss.toLocaleString() + '</td>' +
+      '<td class="' + (alfas === min ? 'cheapest' : '') + '">BD ' + alfas.toLocaleString() + '</td>' +
+      (doha
+        ? '<td class="' + (doha === min ? 'cheapest' : 'expensive') + '">BD ' + doha.toLocaleString() + '</td>'
+        : '<td class="na">—</td>');
+    tbody.appendChild(tr);
+  });
+}
+
+// Fetch live spot
+fetch("https://www.mssbars.com/.netlify/functions/gold-price")
+  .then(r => r.json())
+  .then(d => {
+    const spot = parseFloat(d.last ? d.last.ask : d.ask || d.price);
+    render(spot);
+  })
+  .catch(() => {
+    // Fallback
+    render(5031.10);
+  });
+</script>
+
+</body>
+</html>
