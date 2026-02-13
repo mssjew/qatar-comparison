@@ -89,7 +89,7 @@
       <tr>
         <th>Bar</th>
         <th>MSS 🇧🇭</th>
-        <th>ALFAS</th>
+        <th>ALFAS Cost</th>
         <th>Doha Avg 🇶🇦</th>
       </tr>
     </thead>
@@ -100,7 +100,7 @@
 </div>
 
 <div class="note">
-  💡 MSS prices from mssbars.com live formula. ALFAS = spot gold value + $60/oz premium + per-bar cost (Valcambi, effective 9 Feb 2026). Doha avg from Qatar retail survey, 13 Feb 2026. Cheapest per row in <span style="color:#1B8A1B;font-weight:700;">green</span>.
+  💡 MSS prices from mssbars.com live formula. ALFAS Cost = cost price delivered to Doha (spot + $60/oz gold premium + per-bar charge; silver spot + $21/oz). Valcambi bars, effective 9 Feb 2026. Doha avg from Qatar retail survey, 13 Feb 2026. Cheapest per row in <span style="color:#1B8A1B;font-weight:700;">green</span>.
 </div>
 
 <div class="footer">
@@ -146,7 +146,7 @@ function render(spot) {
       // MSS silver: round(spot * 32.1507 * 0.377) + 273
       mss = Math.round(silverSpot * 32.1507 * 0.377) + 273;
       // ALFAS silver: (spot + 22) * 32.1507 * 0.377, rounded
-      alfas = Math.round((silverSpot + 22) * 32.1507 * 0.377);
+      alfas = Math.round((silverSpot + 21) * 32.1507 * 0.377);
     } else {
       mss = calcMSS(spot, bar);
       alfas = calcALFAS(spot, bar);
