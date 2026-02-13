@@ -8,15 +8,13 @@
   :root {
     --gold: #D4A843;
     --gold-dark: #B8922E;
-    --silver: #A8B2BD;
-    --silver-dark: #8A95A0;
     --bg: #0F1419;
     --card: #1A1F2E;
     --card-border: #2A3040;
     --text: #E8ECF1;
     --text-muted: #8899AA;
     --green: #2ECC71;
-    --green-bg: rgba(46,204,113,0.1);
+    --green-bg: rgba(46,204,113,0.08);
     --red: #E74C3C;
   }
 
@@ -28,111 +26,59 @@
     color: var(--text);
     line-height: 1.5;
     padding: 16px;
-    max-width: 900px;
+    max-width: 600px;
     margin: 0 auto;
   }
 
   .header {
     text-align: center;
-    padding: 24px 0 20px;
+    padding: 20px 0 16px;
     border-bottom: 1px solid var(--card-border);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .header h1 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     background: linear-gradient(135deg, var(--gold), #F0D68A);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 4px;
   }
 
   .header .subtitle {
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-
-  .header .date {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--text-muted);
     margin-top: 4px;
-    opacity: 0.7;
   }
 
   .section-title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
-    margin: 28px 0 12px;
+    margin: 24px 0 10px;
     display: flex;
     align-items: center;
     gap: 8px;
   }
 
-  .section-title .icon { font-size: 20px; }
-
-  .summary-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 10px;
-    margin-bottom: 24px;
-  }
-
-  .summary-card {
+  .row {
     background: var(--card);
     border: 1px solid var(--card-border);
     border-radius: 10px;
-    padding: 14px;
-    text-align: center;
-  }
-
-  .summary-card .label {
-    font-size: 11px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    padding: 12px 14px;
     margin-bottom: 6px;
-  }
-
-  .summary-card .value {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--green);
-  }
-
-  .summary-card .detail {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-top: 4px;
-  }
-
-  .comparison-group {
-    margin-bottom: 20px;
-  }
-
-  .bar-row {
-    background: var(--card);
-    border: 1px solid var(--card-border);
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
   }
 
-  .bar-row.mss {
+  .row.mss {
     border-color: var(--gold-dark);
-    background: linear-gradient(135deg, rgba(212,168,67,0.08), rgba(212,168,67,0.03));
+    background: linear-gradient(135deg, rgba(212,168,67,0.1), rgba(212,168,67,0.03));
   }
 
-  .bar-row .shop-info {
-    flex: 1;
-    min-width: 0;
-  }
+  .row .left { flex: 1; min-width: 0; }
 
-  .bar-row .shop-name {
+  .row .name {
     font-size: 13px;
     font-weight: 600;
     white-space: nowrap;
@@ -140,449 +86,424 @@
     text-overflow: ellipsis;
   }
 
-  .bar-row .shop-detail {
+  .row .detail {
     font-size: 11px;
     color: var(--text-muted);
-    margin-top: 2px;
+    margin-top: 1px;
   }
 
-  .bar-row .premium-info {
-    text-align: right;
-    flex-shrink: 0;
-  }
+  .row .right { text-align: right; flex-shrink: 0; margin-left: 12px; }
 
-  .bar-row .premium {
-    font-size: 16px;
+  .row .price {
+    font-size: 15px;
     font-weight: 700;
   }
 
-  .bar-row .premium.low { color: var(--green); }
-  .bar-row .premium.high { color: var(--red); }
+  .row .price.best { color: var(--green); }
+  .row .price.high { color: var(--red); }
 
-  .bar-row .price-usd {
+  .row .diff {
     font-size: 11px;
     color: var(--text-muted);
-    margin-top: 2px;
+    margin-top: 1px;
   }
 
-  .mss-badge {
+  .badge {
     display: inline-block;
     background: var(--gold);
     color: #000;
     font-size: 9px;
     font-weight: 700;
-    padding: 1px 6px;
-    border-radius: 4px;
-    margin-left: 6px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-left: 4px;
     vertical-align: middle;
-    letter-spacing: 0.5px;
   }
 
-  .savings-bar {
+  .save {
     background: var(--green-bg);
     border: 1px solid rgba(46,204,113,0.2);
     border-radius: 8px;
-    padding: 10px 14px;
-    margin-bottom: 8px;
+    padding: 8px 14px;
+    margin: 6px 0 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-  }
-
-  .savings-bar .label {
     font-size: 12px;
-    color: var(--green);
     font-weight: 600;
-  }
-
-  .savings-bar .value {
-    font-size: 14px;
-    font-weight: 700;
     color: var(--green);
   }
 
   .divider {
     height: 1px;
     background: var(--card-border);
-    margin: 24px 0;
+    margin: 20px 0;
   }
-
-  .footer {
-    text-align: center;
-    padding: 20px 0 10px;
-    font-size: 11px;
-    color: var(--text-muted);
-    border-top: 1px solid var(--card-border);
-    margin-top: 24px;
-  }
-
-  .footer a { color: var(--gold); text-decoration: none; }
 
   .note {
     font-size: 11px;
     color: var(--text-muted);
-    padding: 8px 12px;
+    padding: 10px 12px;
     background: rgba(255,255,255,0.03);
     border-radius: 6px;
-    margin-top: 8px;
+    margin-top: 16px;
+    line-height: 1.6;
   }
+
+  .footer {
+    text-align: center;
+    padding: 16px 0 8px;
+    font-size: 11px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--card-border);
+    margin-top: 20px;
+  }
+
+  .footer a { color: var(--gold); text-decoration: none; }
 
   @media (max-width: 400px) {
     body { padding: 10px; }
-    .header h1 { font-size: 18px; }
-    .bar-row { padding: 12px; }
-    .bar-row .shop-name { font-size: 12px; }
-    .bar-row .premium { font-size: 14px; }
-    .summary-card .value { font-size: 18px; }
+    .header h1 { font-size: 17px; }
+    .row { padding: 10px 12px; }
+    .row .name { font-size: 12px; }
+    .row .price { font-size: 14px; }
   }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>MSS Gold vs Qatar Market</h1>
-  <div class="subtitle">Premium Comparison (USD/oz over spot)</div>
-  <div class="date">Market data collected — 13 February 2026</div>
-</div>
-
-<div class="summary-cards">
-  <div class="summary-card">
-    <div class="label">Gold 100g Savings</div>
-    <div class="value">3-4×</div>
-    <div class="detail">cheaper than Qatar</div>
-  </div>
-  <div class="summary-card">
-    <div class="label">Gold TT Savings</div>
-    <div class="value">5-6×</div>
-    <div class="detail">cheaper than Qatar</div>
-  </div>
-  <div class="summary-card">
-    <div class="label">Silver 1kg Savings</div>
-    <div class="value">1.5-2×</div>
-    <div class="detail">cheaper than Qatar</div>
-  </div>
+  <h1>🇧🇭 MSS Gold vs 🇶🇦 Qatar Market</h1>
+  <div class="subtitle">All prices in Bahraini Dinar (BD) · 13 Feb 2026</div>
 </div>
 
 <!-- GOLD 100g -->
-<div class="section-title"><span class="icon">🥇</span> Gold 100g Bar</div>
-<div class="comparison-group">
-  <div class="bar-row mss">
-    <div class="shop-info">
-      <div class="shop-name">MSS Gold Bahrain <span class="mss-badge">US</span></div>
-      <div class="shop-detail">Spot ~$5,000/oz</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium low">$71/oz</div>
-      <div class="price-usd">~$16,302</div>
-    </div>
+<div class="section-title">🥇 Gold 100g Bar</div>
+
+<div class="row mss">
+  <div class="left">
+    <div class="name">MSS Gold Bahrain <span class="badge">OURS</span></div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Asmaa Jewelery</div>
-      <div class="shop-detail">Spot $5,005 · $16,840</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$233/oz</div>
-    </div>
+  <div class="right">
+    <div class="price best">BD 6,146</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Al Sulaiman (Valcambi)</div>
-      <div class="shop-detail">Spot $4,995 · $16,818</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$236/oz</div>
-    </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Asmaa Jewelery</div>
+    <div class="detail">61,300 QAR</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Kinza Gold (Cast)</div>
-      <div class="shop-detail">Spot $5,007 · $16,895</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$248/oz</div>
-    </div>
+  <div class="right">
+    <div class="price high">BD 6,349</div>
+    <div class="diff">+203 BD</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Shine Jewelry (Auriz)</div>
-      <div class="shop-detail">Spot $5,001 · $16,895</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$254/oz</div>
-    </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Al Sulaiman (Valcambi)</div>
+    <div class="detail">61,388 QAR</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Queens For Gold (Al Husami)</div>
-      <div class="shop-detail">Spot $5,010 · $17,032</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$288/oz</div>
-    </div>
+  <div class="right">
+    <div class="price high">BD 6,358</div>
+    <div class="diff">+212 BD</div>
   </div>
-  <div class="savings-bar">
-    <span class="label">MSS saves you</span>
-    <span class="value">$162 – $217/oz</span>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Shine Jewelry (Auriz)</div>
+    <div class="detail">61,500 QAR</div>
   </div>
+  <div class="right">
+    <div class="price high">BD 6,370</div>
+    <div class="diff">+224 BD</div>
+  </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Kinza Gold (Cast)</div>
+    <div class="detail">61,500 QAR</div>
+  </div>
+  <div class="right">
+    <div class="price high">BD 6,370</div>
+    <div class="diff">+224 BD</div>
+  </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Queens For Gold (Al Husami)</div>
+    <div class="detail">62,000 QAR</div>
+  </div>
+  <div class="right">
+    <div class="price high">BD 6,421</div>
+    <div class="diff">+275 BD</div>
+  </div>
+</div>
+<div class="save">
+  <span>You save with MSS</span>
+  <span>203 – 275 BD</span>
 </div>
 
 <!-- GOLD 50g -->
-<div class="section-title"><span class="icon">🥇</span> Gold 50g Bar</div>
-<div class="comparison-group">
-  <div class="bar-row mss">
-    <div class="shop-info">
-      <div class="shop-name">MSS Gold Bahrain <span class="mss-badge">US</span></div>
-      <div class="shop-detail">Spot ~$5,000/oz</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium low">$135/oz</div>
-      <div class="price-usd">~$8,255</div>
-    </div>
+<div class="section-title">🥇 Gold 50g Bar</div>
+
+<div class="row mss">
+  <div class="left">
+    <div class="name">MSS Gold Bahrain <span class="badge">OURS</span></div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Rua Al Madina (MATIS Qatar)</div>
-      <div class="shop-detail">Spot $4,982 · 31,211 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$352/oz</div>
-    </div>
+  <div class="right">
+    <div class="price best">BD 3,112</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Victoria (PAMP)</div>
-      <div class="shop-detail">Spot $4,997 · 31,450 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$378/oz</div>
-    </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Rua Al Madina (MATIS Qatar)</div>
+    <div class="detail">31,211 QAR</div>
   </div>
-  <div class="savings-bar">
-    <span class="label">MSS saves you</span>
-    <span class="value">$217 – $243/oz</span>
+  <div class="right">
+    <div class="price high">BD 3,233</div>
+    <div class="diff">+121 BD</div>
   </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Victoria (PAMP)</div>
+    <div class="detail">31,450 QAR</div>
+  </div>
+  <div class="right">
+    <div class="price high">BD 3,257</div>
+    <div class="diff">+145 BD</div>
+  </div>
+</div>
+<div class="save">
+  <span>You save with MSS</span>
+  <span>121 – 145 BD</span>
 </div>
 
 <!-- GOLD TT -->
-<div class="section-title"><span class="icon">🥇</span> Gold 10 Tola (116.64g)</div>
-<div class="comparison-group">
-  <div class="bar-row mss">
-    <div class="shop-info">
-      <div class="shop-name">MSS Gold Bahrain <span class="mss-badge">US</span></div>
-      <div class="shop-detail">Spot ~$5,000/oz</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium low">$41/oz</div>
-      <div class="price-usd">~$18,904</div>
-    </div>
+<div class="section-title">🥇 Gold 10 Tola (116.64g)</div>
+
+<div class="row mss">
+  <div class="left">
+    <div class="name">MSS Gold Bahrain <span class="badge">OURS</span></div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Asian Gold (Emirati 116g)</div>
-      <div class="shop-detail">Spot $5,001 · 70,500 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$192/oz</div>
-    </div>
+  <div class="right">
+    <div class="price best">BD 7,127</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Victoria (Prestige TT)</div>
-      <div class="shop-detail">Spot $4,997 · 71,130 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$214/oz</div>
-    </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Asian Gold (Emirati 116g)</div>
+    <div class="detail">70,500 QAR</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Seiss (Prestige TT)</div>
-      <div class="shop-detail">Spot $4,995 · 71,450 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$239/oz</div>
-    </div>
+  <div class="right">
+    <div class="price high">BD 7,302</div>
+    <div class="diff">+175 BD</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Victoria (Argor TT)</div>
-      <div class="shop-detail">Spot $4,997 · 71,600 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$248/oz</div>
-    </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Victoria (Prestige TT)</div>
+    <div class="detail">71,130 QAR</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Victoria (Suisse TT)</div>
-      <div class="shop-detail">Spot $4,997 · 71,680 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$254/oz</div>
-    </div>
+  <div class="right">
+    <div class="price high">BD 7,367</div>
+    <div class="diff">+240 BD</div>
   </div>
-  <div class="savings-bar">
-    <span class="label">MSS saves you</span>
-    <span class="value">$151 – $213/oz</span>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Seiss (Prestige TT)</div>
+    <div class="detail">71,450 QAR</div>
   </div>
+  <div class="right">
+    <div class="price high">BD 7,400</div>
+    <div class="diff">+273 BD</div>
+  </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Victoria (Argor TT)</div>
+    <div class="detail">71,600 QAR</div>
+  </div>
+  <div class="right">
+    <div class="price high">BD 7,416</div>
+    <div class="diff">+289 BD</div>
+  </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Victoria (Suisse TT)</div>
+    <div class="detail">71,680 QAR</div>
+  </div>
+  <div class="right">
+    <div class="price high">BD 7,424</div>
+    <div class="diff">+297 BD</div>
+  </div>
+</div>
+<div class="save">
+  <span>You save with MSS</span>
+  <span>175 – 297 BD</span>
 </div>
 
 <!-- GOLD 5g -->
-<div class="section-title"><span class="icon">🥇</span> Gold 5g Bar</div>
-<div class="comparison-group">
-  <div class="bar-row mss">
-    <div class="shop-info">
-      <div class="shop-name">MSS Gold Bahrain <span class="mss-badge">US</span></div>
-      <div class="shop-detail">Spot ~$5,000/oz</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium low">$280/oz</div>
-      <div class="price-usd">~$849</div>
-    </div>
+<div class="section-title">🥇 Gold 5g Bar</div>
+
+<div class="row mss">
+  <div class="left">
+    <div class="name">MSS Gold Bahrain <span class="badge">OURS</span></div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Gulf Jewelry</div>
-      <div class="shop-detail">Spot ~$5,000 · 3,160 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$400/oz</div>
-    </div>
+  <div class="right">
+    <div class="price best">BD 320</div>
   </div>
-  <div class="savings-bar">
-    <span class="label">MSS saves you</span>
-    <span class="value">~$120/oz</span>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Gulf Jewelry</div>
+    <div class="detail">3,160 QAR</div>
   </div>
+  <div class="right">
+    <div class="price high">BD 327</div>
+    <div class="diff">+7 BD</div>
+  </div>
+</div>
+<div class="save">
+  <span>You save with MSS</span>
+  <span>7 BD</span>
 </div>
 
 <div class="divider"></div>
 
 <!-- SILVER 1kg -->
-<div class="section-title"><span class="icon">⚪</span> Silver 1kg Bar</div>
-<div class="comparison-group">
-  <div class="bar-row mss">
-    <div class="shop-info">
-      <div class="shop-name">MSS Gold Bahrain <span class="mss-badge">US</span></div>
-      <div class="shop-detail">Spot $78/oz</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium low">$22.50/oz</div>
-      <div class="price-usd">~$3,231</div>
-    </div>
+<div class="section-title">⚪ Silver 1kg Bar</div>
+
+<div class="row mss">
+  <div class="left">
+    <div class="name">MSS Gold Bahrain <span class="badge">OURS</span></div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Gulf Jewelry (Emirates Gold)</div>
-      <div class="shop-detail">Spot $77.5 · $3,571</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$34/oz</div>
-    </div>
+  <div class="right">
+    <div class="price best">BD 1,218</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Shine Jewelry</div>
-      <div class="shop-detail">Spot $78 · $3,640</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$35/oz</div>
-    </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Gulf Jewelry (Emirates Gold)</div>
+    <div class="detail">13,000 QAR</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Queen Jewelry (ITAL Italy)</div>
-      <div class="shop-detail">Spot $78 · $3,710</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$37/oz</div>
-    </div>
+  <div class="right">
+    <div class="price high">BD 1,346</div>
+    <div class="diff">+128 BD</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Seiss (Prestige)</div>
-      <div class="shop-detail">Spot $77.1 · 13,500 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$38/oz</div>
-    </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Shine Jewelry</div>
+    <div class="detail">13,250 QAR</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Al Dara (MWG UAE)</div>
-      <div class="shop-detail">Spot $77.7 · 13,500 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$38/oz</div>
-    </div>
+  <div class="right">
+    <div class="price high">BD 1,372</div>
+    <div class="diff">+154 BD</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Victoria Jewelery</div>
-      <div class="shop-detail">Spot $78 · 14,000 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$42/oz</div>
-    </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Queen Jewelry (ITAL Italy)</div>
+    <div class="detail">13,500 QAR</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Asian Gold (Dubai Brand)</div>
-      <div class="shop-detail">Spot $78 · 14,200 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$43/oz</div>
-    </div>
+  <div class="right">
+    <div class="price high">BD 1,398</div>
+    <div class="diff">+180 BD</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Thangals</div>
-      <div class="shop-detail">Spot $78 · $3,983</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$46/oz</div>
-    </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Seiss (Prestige)</div>
+    <div class="detail">13,500 QAR</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Queens For Gold (Palm Emirati)</div>
-      <div class="shop-detail">Spot $78.3 · $4,120</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$50/oz</div>
-    </div>
+  <div class="right">
+    <div class="price high">BD 1,398</div>
+    <div class="diff">+180 BD</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">SR Gold (MGR UAE)</div>
-      <div class="shop-detail">Spot $77.1 · 15,000 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$51/oz</div>
-    </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Al Dara (MWG UAE)</div>
+    <div class="detail">13,500 QAR</div>
   </div>
-  <div class="bar-row">
-    <div class="shop-info">
-      <div class="shop-name">Rua Al Madina</div>
-      <div class="shop-detail">Spot $77.1 · 15,000 QAR</div>
-    </div>
-    <div class="premium-info">
-      <div class="premium high">$51/oz</div>
-    </div>
+  <div class="right">
+    <div class="price high">BD 1,398</div>
+    <div class="diff">+180 BD</div>
   </div>
-  <div class="savings-bar">
-    <span class="label">MSS saves you</span>
-    <span class="value">$11.50 – $28.50/oz</span>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Victoria Jewelery</div>
+    <div class="detail">14,000 QAR</div>
   </div>
+  <div class="right">
+    <div class="price high">BD 1,450</div>
+    <div class="diff">+232 BD</div>
+  </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Asian Gold (Dubai Brand)</div>
+    <div class="detail">14,200 QAR</div>
+  </div>
+  <div class="right">
+    <div class="price high">BD 1,471</div>
+    <div class="diff">+253 BD</div>
+  </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Thangals</div>
+    <div class="detail">14,500 QAR</div>
+  </div>
+  <div class="right">
+    <div class="price high">BD 1,502</div>
+    <div class="diff">+284 BD</div>
+  </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Queens For Gold (Palm)</div>
+    <div class="detail">15,000 QAR</div>
+  </div>
+  <div class="right">
+    <div class="price high">BD 1,554</div>
+    <div class="diff">+336 BD</div>
+  </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">SR Gold (MGR UAE)</div>
+    <div class="detail">15,000 QAR</div>
+  </div>
+  <div class="right">
+    <div class="price high">BD 1,554</div>
+    <div class="diff">+336 BD</div>
+  </div>
+</div>
+<div class="row">
+  <div class="left">
+    <div class="name">Rua Al Madina</div>
+    <div class="detail">15,000 QAR</div>
+  </div>
+  <div class="right">
+    <div class="price high">BD 1,554</div>
+    <div class="diff">+336 BD</div>
+  </div>
+</div>
+<div class="save">
+  <span>You save with MSS</span>
+  <span>128 – 336 BD</span>
 </div>
 
 <div class="note">
-  💡 All premiums calculated as USD per troy ounce over the live spot price at time of quote. QAR to USD conversion at 3.64. MSS prices include all markups. Data sourced from Qatar retail shops on 13 Feb 2026.
+  💡 All prices compared at similar spot rates (~$5,000/oz gold, ~$78/oz silver) on 13 Feb 2026. QAR converted to BD at 1 QAR = 0.1036 BD. MSS prices are calculated live from mssbars.com pricing formula. Qatar prices sourced from retail shops.
 </div>
 
 <div class="footer">
-  <a href="https://mssbars.com">mssbars.com</a> · MSS Gold Bahrain<br>
-  Compiled by MSS Research
+  <a href="https://mssbars.com">mssbars.com</a> · MSS Gold Bahrain
 </div>
 
 </body>
