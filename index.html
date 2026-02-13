@@ -5,53 +5,75 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MSS Gold vs Qatar Market — Price Comparison</title>
 <style>
-  :root {
-    --gold: #D4A843;
-    --gold-dark: #B8922E;
-    --bg: #0F1419;
-    --card: #1A1F2E;
-    --card-border: #2A3040;
-    --text: #E8ECF1;
-    --text-muted: #8899AA;
-    --green: #2ECC71;
-    --green-bg: rgba(46,204,113,0.08);
-    --red: #E74C3C;
-  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg); color: var(--text); line-height: 1.5;
+    background: #F0F0F0; color: #1A1A1A; line-height: 1.5;
     padding: 16px; max-width: 600px; margin: 0 auto;
   }
-  .header { text-align: center; padding: 20px 0 16px; border-bottom: 1px solid var(--card-border); margin-bottom: 20px; }
-  .header h1 { font-size: 20px; font-weight: 700; background: linear-gradient(135deg, var(--gold), #F0D68A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  .header .subtitle { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-  .section-title { font-size: 15px; font-weight: 700; margin: 24px 0 10px; display: flex; align-items: center; gap: 8px; }
-  .row { background: var(--card); border: 1px solid var(--card-border); border-radius: 10px; padding: 12px 14px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; }
-  .row .left { flex: 1; min-width: 0; }
-  .row .name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .row .detail { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
-  .row .right { text-align: right; flex-shrink: 0; margin-left: 12px; }
-  .row .price { font-size: 15px; font-weight: 700; }
-  .row .price.best { color: var(--green); }
-  .row .price.high { color: var(--red); }
-  .row .diff { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
-  .badge { display: inline-block; background: var(--gold); color: #000; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 3px; margin-left: 4px; vertical-align: middle; }
-  .spot-tag { font-size: 10px; color: var(--text-muted); background: rgba(255,255,255,0.05); padding: 1px 6px; border-radius: 3px; margin-left: 4px; }
-  .save { background: var(--green-bg); border: 1px solid rgba(46,204,113,0.2); border-radius: 8px; padding: 8px 14px; margin: 6px 0 0; display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--green); }
-  .divider { height: 1px; background: var(--card-border); margin: 20px 0; }
-  .note { font-size: 11px; color: var(--text-muted); padding: 10px 12px; background: rgba(255,255,255,0.03); border-radius: 6px; margin-top: 16px; line-height: 1.6; }
-  .footer { text-align: center; padding: 16px 0 8px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--card-border); margin-top: 20px; }
-  .footer a { color: var(--gold); text-decoration: none; }
+  .header {
+    text-align: center; padding: 20px 16px; margin-bottom: 16px;
+    background: #fff; border-radius: 14px; border: 1px solid #DDD;
+  }
+  .header h1 { font-size: 19px; font-weight: 800; color: #1A1A1A; }
+  .header .subtitle { font-size: 12px; color: #777; margin-top: 4px; }
+
+  .weight-section {
+    background: #FFFFFF; border: 1px solid #DDD; border-radius: 14px;
+    padding: 16px; margin-bottom: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .weight-title {
+    font-size: 15px; font-weight: 800; color: #1A1A1A;
+    padding-bottom: 10px; margin-bottom: 12px;
+    border-bottom: 2px solid #E8E8E8;
+    display: flex; align-items: center; gap: 8px;
+  }
+
   .pair { margin-bottom: 10px; }
-  .pair .qatar-row { border-radius: 10px 10px 0 0; margin-bottom: 0; border-bottom: none; }
-  .pair .mss-row { border-radius: 0 0 10px 10px; border-top: 1px dashed var(--card-border); background: rgba(46,204,113,0.04); }
+  .pair:last-child { margin-bottom: 0; }
+
+  .qatar-row {
+    background: #FFF5F5; border: 1px solid #F0D0D0; border-radius: 10px 10px 0 0;
+    padding: 11px 14px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .mss-row {
+    background: #F0FAF0; border: 1px solid #C8E6C8; border-radius: 0 0 10px 10px;
+    padding: 11px 14px; display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px dashed #D0D0D0;
+  }
+
+  .left { flex: 1; min-width: 0; }
+  .name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #1A1A1A; }
+  .detail { font-size: 11px; color: #888; margin-top: 1px; }
+  .right { text-align: right; flex-shrink: 0; margin-left: 12px; }
+  .price { font-size: 15px; font-weight: 700; }
+  .price.high { color: #CC3333; }
+  .price.best { color: #1B8A1B; }
+  .diff { font-size: 11px; color: #888; margin-top: 1px; }
+
+  .badge {
+    display: inline-block; background: #C8963E; color: #fff;
+    font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 3px;
+    margin-left: 4px; vertical-align: middle;
+  }
+
+  .note {
+    font-size: 11px; color: #888; padding: 10px 14px;
+    background: #fff; border: 1px solid #DDD; border-radius: 10px;
+    margin-top: 4px; line-height: 1.6;
+  }
+  .footer {
+    text-align: center; padding: 14px 0 6px; font-size: 11px; color: #999;
+  }
+  .footer a { color: #C8963E; text-decoration: none; font-weight: 600; }
+
   @media (max-width: 400px) {
     body { padding: 10px; }
     .header h1 { font-size: 17px; }
-    .row { padding: 10px 12px; }
-    .row .name { font-size: 12px; }
-    .row .price { font-size: 14px; }
+    .qatar-row, .mss-row { padding: 9px 11px; }
+    .name { font-size: 12px; }
+    .price { font-size: 14px; }
   }
 </style>
 </head>
@@ -63,536 +85,296 @@
 </div>
 
 <!-- GOLD 100g -->
-<div class="section-title">🥇 Gold 100g Bar</div>
+<div class="weight-section">
+  <div class="weight-title">🥇 Gold 100g Bar</div>
 
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Asmaa Jewelery</div>
-      <div class="detail">61,300 QAR · spot $5,005</div>
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Asmaa Jewelery</div><div class="detail">61,300 QAR · spot $5,005</div></div>
+      <div class="right"><div class="price high">BD 6,349</div></div>
     </div>
-    <div class="right">
-      <div class="price high">BD 6,349</div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 6,152</div><div class="diff">Qatar 197 BD more</div></div>
     </div>
   </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Al Sulaiman (Valcambi)</div><div class="detail">61,388 QAR · spot $4,995</div></div>
+      <div class="right"><div class="price high">BD 6,358</div></div>
     </div>
-    <div class="right">
-      <div class="price best">BD 6,152</div>
-      <div class="diff">Qatar 197 BD more</div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 6,140</div><div class="diff">Qatar 218 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Kinza Gold (Cast)</div><div class="detail">61,500 QAR · spot $5,007</div></div>
+      <div class="right"><div class="price high">BD 6,370</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 6,154</div><div class="diff">Qatar 216 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Shine Jewelry (Auriz)</div><div class="detail">61,500 QAR · spot $5,001</div></div>
+      <div class="right"><div class="price high">BD 6,370</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 6,147</div><div class="diff">Qatar 223 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Queens For Gold (Al Husami)</div><div class="detail">62,000 QAR · spot $5,010</div></div>
+      <div class="right"><div class="price high">BD 6,421</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 6,158</div><div class="diff">Qatar 263 BD more</div></div>
     </div>
   </div>
 </div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Al Sulaiman (Valcambi)</div>
-      <div class="detail">61,388 QAR · spot $4,995</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 6,358</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 6,140</div>
-      <div class="diff">Qatar 218 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Kinza Gold (Cast)</div>
-      <div class="detail">61,500 QAR · spot $5,007</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 6,370</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 6,154</div>
-      <div class="diff">Qatar 216 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Shine Jewelry (Auriz)</div>
-      <div class="detail">61,500 QAR · spot $5,001</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 6,370</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 6,147</div>
-      <div class="diff">Qatar 223 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Queens For Gold (Al Husami)</div>
-      <div class="detail">62,000 QAR · spot $5,010</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 6,421</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 6,158</div>
-      <div class="diff">Qatar 263 BD more</div>
-    </div>
-  </div>
-</div>
-
-
 
 <!-- GOLD 50g -->
-<div class="section-title">🥇 Gold 50g Bar</div>
+<div class="weight-section">
+  <div class="weight-title">🥇 Gold 50g Bar</div>
 
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Rua Al Madina (MATIS Qatar)</div>
-      <div class="detail">31,211 QAR · spot $4,982</div>
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Rua Al Madina (MATIS Qatar)</div><div class="detail">31,211 QAR · spot $4,982</div></div>
+      <div class="right"><div class="price high">BD 3,233</div></div>
     </div>
-    <div class="right">
-      <div class="price high">BD 3,233</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 3,101</div>
-      <div class="diff">Qatar 132 BD more</div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 3,101</div><div class="diff">Qatar 132 BD more</div></div>
     </div>
   </div>
-</div>
 
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Victoria (PAMP)</div>
-      <div class="detail">31,450 QAR · spot $4,997</div>
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Victoria (PAMP)</div><div class="detail">31,450 QAR · spot $4,997</div></div>
+      <div class="right"><div class="price high">BD 3,257</div></div>
     </div>
-    <div class="right">
-      <div class="price high">BD 3,257</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 3,111</div>
-      <div class="diff">Qatar 146 BD more</div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 3,111</div><div class="diff">Qatar 146 BD more</div></div>
     </div>
   </div>
 </div>
-
-
 
 <!-- GOLD TT -->
-<div class="section-title">🥇 Gold 10 Tola (116.64g)</div>
+<div class="weight-section">
+  <div class="weight-title">🥇 Gold 10 Tola (116.64g)</div>
 
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Asian Gold (Emirati 116g)</div>
-      <div class="detail">70,500 QAR · spot $5,001</div>
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Asian Gold (Emirati 116g)</div><div class="detail">70,500 QAR · spot $5,001</div></div>
+      <div class="right"><div class="price high">BD 7,302</div></div>
     </div>
-    <div class="right">
-      <div class="price high">BD 7,302</div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 7,129</div><div class="diff">Qatar 173 BD more</div></div>
     </div>
   </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Victoria (Prestige TT)</div><div class="detail">71,130 QAR · spot $4,997</div></div>
+      <div class="right"><div class="price high">BD 7,367</div></div>
     </div>
-    <div class="right">
-      <div class="price best">BD 7,129</div>
-      <div class="diff">Qatar 173 BD more</div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 7,123</div><div class="diff">Qatar 244 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Seiss (Prestige TT)</div><div class="detail">71,450 QAR · spot $4,995</div></div>
+      <div class="right"><div class="price high">BD 7,400</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 7,120</div><div class="diff">Qatar 280 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Victoria (Argor TT)</div><div class="detail">71,600 QAR · spot $4,997</div></div>
+      <div class="right"><div class="price high">BD 7,416</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 7,123</div><div class="diff">Qatar 293 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Victoria (Suisse TT)</div><div class="detail">71,680 QAR · spot $4,997</div></div>
+      <div class="right"><div class="price high">BD 7,424</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 7,123</div><div class="diff">Qatar 301 BD more</div></div>
     </div>
   </div>
 </div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Victoria (Prestige TT)</div>
-      <div class="detail">71,130 QAR · spot $4,997</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 7,367</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 7,123</div>
-      <div class="diff">Qatar 244 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Seiss (Prestige TT)</div>
-      <div class="detail">71,450 QAR · spot $4,995</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 7,400</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 7,120</div>
-      <div class="diff">Qatar 280 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Victoria (Argor TT)</div>
-      <div class="detail">71,600 QAR · spot $4,997</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 7,416</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 7,123</div>
-      <div class="diff">Qatar 293 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Victoria (Suisse TT)</div>
-      <div class="detail">71,680 QAR · spot $4,997</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 7,424</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 7,123</div>
-      <div class="diff">Qatar 301 BD more</div>
-    </div>
-  </div>
-</div>
-
-
 
 <!-- GOLD 5g -->
-<div class="section-title">🥇 Gold 5g Bar</div>
+<div class="weight-section">
+  <div class="weight-title">🥇 Gold 5g Bar</div>
 
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Gulf Jewelry</div>
-      <div class="detail">3,160 QAR · spot ~$5,000</div>
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Gulf Jewelry</div><div class="detail">3,160 QAR · spot ~$5,000</div></div>
+      <div class="right"><div class="price high">BD 327</div></div>
     </div>
-    <div class="right">
-      <div class="price high">BD 327</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 320</div>
-      <div class="diff">Qatar 7 BD more</div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 320</div><div class="diff">Qatar 7 BD more</div></div>
     </div>
   </div>
 </div>
-
-<div class="divider"></div>
 
 <!-- SILVER 1kg -->
-<div class="section-title">⚪ Silver 1kg Bar</div>
+<div class="weight-section">
+  <div class="weight-title">⚪ Silver 1kg Bar</div>
 
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Gulf Jewelry (Emirates Gold)</div>
-      <div class="detail">13,000 QAR · spot $77.5</div>
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Gulf Jewelry (Emirates Gold)</div><div class="detail">13,000 QAR · spot $77.5</div></div>
+      <div class="right"><div class="price high">BD 1,346</div></div>
     </div>
-    <div class="right">
-      <div class="price high">BD 1,346</div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 1,212</div><div class="diff">Qatar 134 BD more</div></div>
     </div>
   </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Shine Jewelry</div><div class="detail">13,250 QAR · spot $78</div></div>
+      <div class="right"><div class="price high">BD 1,372</div></div>
     </div>
-    <div class="right">
-      <div class="price best">BD 1,212</div>
-      <div class="diff">Qatar 134 BD more</div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 1,218</div><div class="diff">Qatar 154 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Queen Jewelry (ITAL Italy)</div><div class="detail">13,500 QAR · spot $78</div></div>
+      <div class="right"><div class="price high">BD 1,398</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 1,218</div><div class="diff">Qatar 180 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Seiss (Prestige)</div><div class="detail">13,500 QAR · spot $77.1</div></div>
+      <div class="right"><div class="price high">BD 1,398</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 1,208</div><div class="diff">Qatar 190 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Al Dara (MWG UAE)</div><div class="detail">13,500 QAR · spot $77.7</div></div>
+      <div class="right"><div class="price high">BD 1,398</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 1,215</div><div class="diff">Qatar 183 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Victoria Jewelery</div><div class="detail">14,000 QAR · spot $78</div></div>
+      <div class="right"><div class="price high">BD 1,450</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 1,218</div><div class="diff">Qatar 232 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Asian Gold (Dubai Brand)</div><div class="detail">14,200 QAR · spot $78</div></div>
+      <div class="right"><div class="price high">BD 1,471</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 1,218</div><div class="diff">Qatar 253 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Thangals</div><div class="detail">14,500 QAR · spot $78</div></div>
+      <div class="right"><div class="price high">BD 1,502</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 1,218</div><div class="diff">Qatar 284 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Queens For Gold (Palm)</div><div class="detail">15,000 QAR · spot $78.3</div></div>
+      <div class="right"><div class="price high">BD 1,554</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 1,222</div><div class="diff">Qatar 332 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">SR Gold (MGR UAE)</div><div class="detail">15,000 QAR · spot $77.1</div></div>
+      <div class="right"><div class="price high">BD 1,554</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 1,208</div><div class="diff">Qatar 346 BD more</div></div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="qatar-row">
+      <div class="left"><div class="name">Rua Al Madina</div><div class="detail">15,000 QAR · spot $77.1</div></div>
+      <div class="right"><div class="price high">BD 1,554</div></div>
+    </div>
+    <div class="mss-row">
+      <div class="left"><div class="name">MSS at same spot <span class="badge">OURS</span></div></div>
+      <div class="right"><div class="price best">BD 1,208</div><div class="diff">Qatar 346 BD more</div></div>
     </div>
   </div>
 </div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Shine Jewelry</div>
-      <div class="detail">13,250 QAR · spot $78</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 1,372</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 1,218</div>
-      <div class="diff">Qatar 154 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Queen Jewelry (ITAL Italy)</div>
-      <div class="detail">13,500 QAR · spot $78</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 1,398</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 1,218</div>
-      <div class="diff">Qatar 180 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Seiss (Prestige)</div>
-      <div class="detail">13,500 QAR · spot $77.1</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 1,398</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 1,208</div>
-      <div class="diff">Qatar 190 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Al Dara (MWG UAE)</div>
-      <div class="detail">13,500 QAR · spot $77.7</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 1,398</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 1,215</div>
-      <div class="diff">Qatar 183 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Victoria Jewelery</div>
-      <div class="detail">14,000 QAR · spot $78</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 1,450</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 1,218</div>
-      <div class="diff">Qatar 232 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Asian Gold (Dubai Brand)</div>
-      <div class="detail">14,200 QAR · spot $78</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 1,471</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 1,218</div>
-      <div class="diff">Qatar 253 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Thangals</div>
-      <div class="detail">14,500 QAR · spot $78</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 1,502</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 1,218</div>
-      <div class="diff">Qatar 284 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Queens For Gold (Palm)</div>
-      <div class="detail">15,000 QAR · spot $78.3</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 1,554</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 1,222</div>
-      <div class="diff">Qatar 332 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">SR Gold (MGR UAE)</div>
-      <div class="detail">15,000 QAR · spot $77.1</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 1,554</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 1,208</div>
-      <div class="diff">Qatar 346 BD more</div>
-    </div>
-  </div>
-</div>
-
-<div class="pair">
-  <div class="row qatar-row">
-    <div class="left">
-      <div class="name">Rua Al Madina</div>
-      <div class="detail">15,000 QAR · spot $77.1</div>
-    </div>
-    <div class="right">
-      <div class="price high">BD 1,554</div>
-    </div>
-  </div>
-  <div class="row mss-row">
-    <div class="left">
-      <div class="name">MSS at same spot <span class="badge">OURS</span></div>
-    </div>
-    <div class="right">
-      <div class="price best">BD 1,208</div>
-      <div class="diff">Qatar 346 BD more</div>
-    </div>
-  </div>
-</div>
-
-
 
 <div class="note">
-  💡 MSS prices calculated using the exact same spot rate each Qatar shop quoted. QAR → BD at 1 QAR = 0.1036 BD. All data from Qatar retail shops, 13 Feb 2026.
+  💡 MSS prices calculated at the exact spot rate each Qatar shop quoted. QAR → BD at 1 QAR = 0.1036 BD. Data from Qatar retail shops, 13 Feb 2026.
 </div>
 
 <div class="footer">
