@@ -66,6 +66,32 @@
     margin-left: 4px; vertical-align: middle;
   }
 
+  .summary-box {
+    background: #fff; border: 1px solid #DDD; border-radius: 14px;
+    padding: 16px; margin-bottom: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .summary-title {
+    font-size: 14px; font-weight: 800; color: #1A1A1A;
+    margin-bottom: 12px; text-align: center;
+  }
+  .summary-table {
+    width: 100%; border-collapse: collapse; font-size: 14px;
+  }
+  .summary-table th {
+    text-align: left; font-size: 11px; color: #888;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    padding: 6px 10px; border-bottom: 2px solid #E8E8E8;
+  }
+  .summary-table th:last-child { text-align: right; }
+  .summary-table td {
+    padding: 10px; border-bottom: 1px solid #F0F0F0; font-weight: 600;
+  }
+  .summary-table td.highlight {
+    text-align: right; color: #CC3333; font-weight: 700; font-size: 15px;
+  }
+  .summary-table tr:last-child td { border-bottom: none; }
+
   .note {
     font-size: 11px; color: #888; padding: 10px 14px;
     background: #fff; border: 1px solid #DDD; border-radius: 10px;
@@ -90,6 +116,21 @@
 <div class="header">
   <h1>🇧🇭 MSS Gold vs 🇶🇦 Qatar Market</h1>
   <div class="subtitle">All prices in BD · Same spot rate comparison · 13 Feb 2026</div>
+</div>
+
+<div class="summary-box">
+  <div class="summary-title">Qatar Average Price vs Bahrain</div>
+  <table class="summary-table">
+    <thead>
+      <tr><th>Bar</th><th>Qatar Avg. Higher By</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Gold 50g</td><td class="highlight">+139 BD</td></tr>
+      <tr><td>Gold 100g</td><td class="highlight">+223 BD</td></tr>
+      <tr><td>Gold 10 Tola</td><td class="highlight">+258 BD</td></tr>
+      <tr><td>Silver 1kg</td><td class="highlight">+239 BD</td></tr>
+    </tbody>
+  </table>
 </div>
 
 <!-- GOLD 100g -->
