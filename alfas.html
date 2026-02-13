@@ -121,6 +121,7 @@ const bars = [
   { name: "1oz",  w: 31.10347, mssAdd: 82,  mssFlat: 30, alfasCost: 135, curr: "QAR", doha: null },
   { name: "50g",  w: 50,       mssAdd: 77,  mssFlat: 35, alfasCost: 165, curr: "QAR", doha: 3245 },
   { name: "100g", w: 100,      mssAdd: 41,  mssFlat: 35, alfasCost: 188, curr: "QAR", doha: 6374 },
+  { name: "1kg Ag", w: null, silver: true, doha: 1398 },
 ];
 
 function calcMSS(spot, bar) {
@@ -140,8 +141,16 @@ function render(spot) {
   tbody.innerHTML = "";
 
   bars.forEach(bar => {
-    const mss = calcMSS(spot, bar);
-    const alfas = calcALFAS(spot, bar);
+    let mss, alfas;
+    if (bar.silver) {
+      // MSS silver: round(spot * 32.1507 * 0.377) + 273
+      mss = Math.round(silverSpot * 32.1507 * 0.377) + 273;
+      // ALFAS silver: (spot + 22) * 32.1507 * 0.377, rounded
+      alfas = Math.round((silverSpot + 22) * 32.1507 * 0.377);
+    } else {
+      mss = calcMSS(spot, bar);
+      alfas = calcALFAS(spot, bar);
+    }
     const doha = bar.doha;
 
     const prices = [mss, alfas];
@@ -159,6 +168,13 @@ function render(spot) {
     tbody.appendChild(tr);
   });
 }
+
+// Fetch silver + gold
+let silverSpot = 78; // fallback
+fetch("https://www.mssbars.com/.netlify/functions/silver-price")
+  .then(r => r.json())
+  .then(d => { silverSpot = parseFloat(d.last ? d.last.ask : d.ask || 78); })
+  .catch(() => {});
 
 // Fetch live spot
 fetch("https://www.mssbars.com/.netlify/functions/gold-price")
