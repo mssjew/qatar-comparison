@@ -25,13 +25,21 @@
   }
   .weight-title {
     font-size: 15px; font-weight: 800; color: #1A1A1A;
-    padding-bottom: 10px; margin-bottom: 12px;
+    padding: 10px 0; margin-bottom: 12px;
     border-bottom: 2px solid #E8E8E8;
     display: flex; align-items: center; gap: 8px;
+    position: sticky; top: 0; background: #fff; z-index: 10;
   }
 
-  .pair { margin-bottom: 10px; }
+
+  .pair { margin-bottom: 10px; position: relative; }
   .pair:last-child { margin-bottom: 0; }
+  .weight-tag {
+    position: absolute; top: 6px; right: 8px;
+    font-size: 9px; font-weight: 700; color: #999;
+    background: rgba(0,0,0,0.04); padding: 1px 6px; border-radius: 3px;
+    letter-spacing: 0.3px;
+  }
 
   .qatar-row {
     background: #FFF5F5; border: 1px solid #F0D0D0; border-radius: 10px 10px 0 0;
@@ -88,7 +96,7 @@
 <div class="weight-section">
   <div class="weight-title">🥇 Gold 100g Bar</div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">100g</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Asmaa Jewelery</div><div class="detail">61,300 QAR · spot $5,005</div></div>
       <div class="right"><div class="price high">BD 6,349</div></div>
@@ -99,7 +107,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">100g</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Al Sulaiman (Valcambi)</div><div class="detail">61,388 QAR · spot $4,995</div></div>
       <div class="right"><div class="price high">BD 6,358</div></div>
@@ -110,7 +118,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">100g</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Kinza Gold (Cast)</div><div class="detail">61,500 QAR · spot $5,007</div></div>
       <div class="right"><div class="price high">BD 6,370</div></div>
@@ -121,7 +129,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">100g</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Shine Jewelry (Auriz)</div><div class="detail">61,500 QAR · spot $5,001</div></div>
       <div class="right"><div class="price high">BD 6,370</div></div>
@@ -132,7 +140,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">100g</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Queens For Gold (Al Husami)</div><div class="detail">62,000 QAR · spot $5,010</div></div>
       <div class="right"><div class="price high">BD 6,421</div></div>
@@ -148,7 +156,7 @@
 <div class="weight-section">
   <div class="weight-title">🥇 Gold 50g Bar</div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">50g</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Rua Al Madina (MATIS Qatar)</div><div class="detail">31,211 QAR · spot $4,982</div></div>
       <div class="right"><div class="price high">BD 3,233</div></div>
@@ -159,7 +167,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">50g</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Victoria (PAMP)</div><div class="detail">31,450 QAR · spot $4,997</div></div>
       <div class="right"><div class="price high">BD 3,257</div></div>
@@ -175,7 +183,7 @@
 <div class="weight-section">
   <div class="weight-title">🥇 Gold 10 Tola (116.64g)</div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">10 Tola</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Asian Gold (Emirati 116g)</div><div class="detail">70,500 QAR · spot $5,001</div></div>
       <div class="right"><div class="price high">BD 7,302</div></div>
@@ -186,7 +194,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">10 Tola</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Victoria (Prestige TT)</div><div class="detail">71,130 QAR · spot $4,997</div></div>
       <div class="right"><div class="price high">BD 7,367</div></div>
@@ -197,7 +205,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">10 Tola</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Seiss (Prestige TT)</div><div class="detail">71,450 QAR · spot $4,995</div></div>
       <div class="right"><div class="price high">BD 7,400</div></div>
@@ -208,7 +216,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">10 Tola</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Victoria (Argor TT)</div><div class="detail">71,600 QAR · spot $4,997</div></div>
       <div class="right"><div class="price high">BD 7,416</div></div>
@@ -219,7 +227,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">10 Tola</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Victoria (Suisse TT)</div><div class="detail">71,680 QAR · spot $4,997</div></div>
       <div class="right"><div class="price high">BD 7,424</div></div>
@@ -235,7 +243,7 @@
 <div class="weight-section">
   <div class="weight-title">🥇 Gold 5g Bar</div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">5g</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Gulf Jewelry</div><div class="detail">3,160 QAR · spot ~$5,000</div></div>
       <div class="right"><div class="price high">BD 327</div></div>
@@ -251,7 +259,7 @@
 <div class="weight-section">
   <div class="weight-title">⚪ Silver 1kg Bar</div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">1kg Ag</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Gulf Jewelry (Emirates Gold)</div><div class="detail">13,000 QAR · spot $77.5</div></div>
       <div class="right"><div class="price high">BD 1,346</div></div>
@@ -262,7 +270,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">1kg Ag</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Shine Jewelry</div><div class="detail">13,250 QAR · spot $78</div></div>
       <div class="right"><div class="price high">BD 1,372</div></div>
@@ -273,7 +281,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">1kg Ag</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Queen Jewelry (ITAL Italy)</div><div class="detail">13,500 QAR · spot $78</div></div>
       <div class="right"><div class="price high">BD 1,398</div></div>
@@ -284,7 +292,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">1kg Ag</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Seiss (Prestige)</div><div class="detail">13,500 QAR · spot $77.1</div></div>
       <div class="right"><div class="price high">BD 1,398</div></div>
@@ -295,7 +303,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">1kg Ag</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Al Dara (MWG UAE)</div><div class="detail">13,500 QAR · spot $77.7</div></div>
       <div class="right"><div class="price high">BD 1,398</div></div>
@@ -306,7 +314,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">1kg Ag</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Victoria Jewelery</div><div class="detail">14,000 QAR · spot $78</div></div>
       <div class="right"><div class="price high">BD 1,450</div></div>
@@ -317,7 +325,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">1kg Ag</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Asian Gold (Dubai Brand)</div><div class="detail">14,200 QAR · spot $78</div></div>
       <div class="right"><div class="price high">BD 1,471</div></div>
@@ -328,7 +336,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">1kg Ag</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Thangals</div><div class="detail">14,500 QAR · spot $78</div></div>
       <div class="right"><div class="price high">BD 1,502</div></div>
@@ -339,7 +347,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">1kg Ag</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Queens For Gold (Palm)</div><div class="detail">15,000 QAR · spot $78.3</div></div>
       <div class="right"><div class="price high">BD 1,554</div></div>
@@ -350,7 +358,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">1kg Ag</span>
     <div class="qatar-row">
       <div class="left"><div class="name">SR Gold (MGR UAE)</div><div class="detail">15,000 QAR · spot $77.1</div></div>
       <div class="right"><div class="price high">BD 1,554</div></div>
@@ -361,7 +369,7 @@
     </div>
   </div>
 
-  <div class="pair">
+  <div class="pair"><span class="weight-tag">1kg Ag</span>
     <div class="qatar-row">
       <div class="left"><div class="name">Rua Al Madina</div><div class="detail">15,000 QAR · spot $77.1</div></div>
       <div class="right"><div class="price high">BD 1,554</div></div>
